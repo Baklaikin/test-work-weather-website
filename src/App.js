@@ -1,9 +1,8 @@
 import "./App.css";
-import { CurrentTemp } from "views/CurrentTemp";
-import { CitySearch } from "components/CitySearch";
-import { useState } from "react";
-import { useGeolocation } from "hooks/useGeolocation";
-import { useEffect } from "react";
+import { CurrentTemp } from "./views/CurrentTemp";
+import { CitySearch } from "./components/CitySearch";
+import { useState, useEffect } from "react";
+import { useGeolocation } from "./hooks/useGeolocation";
 import styled from "@emotion/styled";
 
 function App() {
