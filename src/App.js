@@ -4,6 +4,7 @@ import { CitySearch } from "components/CitySearch";
 import { useState } from "react";
 import { useGeolocation } from "hooks/useGeolocation";
 import { useEffect } from "react";
+import styled from "@emotion/styled";
 
 function App() {
   const [city, setCity] = useState("");
@@ -21,14 +22,22 @@ function App() {
   const coordInputHandler = (result) => setLocation(result);
 
   return (
-    <div>
+    <Container>
       <CitySearch
         onCitySearch={inputHandler}
         onCoordSearch={coordInputHandler}
       />
       <CurrentTemp data={city} location={location} />
-    </div>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  min-width: 320px;
+  max-width: 1280px;
+  padding: 8px;
+  margin: 0 auto;
+  background-color: transparent;
+`;

@@ -1,4 +1,8 @@
 import { useState } from "react/cjs/react.development";
+import { Form, Input, Button } from "./CitySearch.styled";
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form'
+// import { Row } from "react-bootstrap";
 
 export function CitySearch({ onCitySearch, onCoordSearch }) {
   const [result, setResult] = useState("");
@@ -27,17 +31,17 @@ export function CitySearch({ onCitySearch, onCoordSearch }) {
     const coords = data.split(" ");
     setLocation({ lat: Math.round(coords[0]), lon: Math.round(coords[1]) });
   };
-  console.log("result in city", result);
+  // console.log("result in city", result);
 
   return (
-    <form onSubmit={formHandler}>
-      <input
+    <Form onSubmit={formHandler}>
+      <Input
         type="text"
         name="citySearch"
         placeholder="Enter the city or coordinates"
         onInput={inputHandler}
       />
-      <button>Search</button>
-    </form>
+      <Button type="submit">Search</Button>
+    </Form>
   );
 }
