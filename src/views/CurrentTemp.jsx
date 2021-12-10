@@ -1,18 +1,21 @@
 import { FetchWeaterByLocation } from "api/apiService";
 import { FetchWeather } from "api/apiService";
 import { useState, useEffect } from "react";
-import { Container, InfoWrapper } from "./CurrentTemp.styled";
+import {
+  Container,
+  InfoWrapper,
+  WeatherPicture,
+  Temp,
+} from "./CurrentTemp.styled";
 
 export function CurrentTemp({ data, location }) {
   const [temp, setTemp] = useState("");
-  const [weather, setWeather] = useState({});
-  // console.log("location in currentTemp", location);
-  // console.log("data in currentTemp", data);
+  const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
     if (data !== "") {
       FetchWeather(data).then((response) => {
-        setWeather(response);
+        setWeatherData(response);
         setTemp(Math.floor(response.main.temp));
       });
     }
@@ -20,14 +23,11 @@ export function CurrentTemp({ data, location }) {
   useEffect(() => {
     if (!isNaN(location.lat) && !isNaN(location.lon)) {
       FetchWeaterByLocation(location).then((response) => {
-        setWeather(response);
-        console.log(response);
+        setWeatherData(response);
         setTemp(Math.floor(response.main.temp));
       });
     }
   }, [location]);
-
-  console.log(weather);
 
   const isItWarm = (temp) => {
     if (temp < 10) {
@@ -44,20 +44,20 @@ export function CurrentTemp({ data, location }) {
     }
   };
 
-  if (typeof weather.main !== "undefined") {
+  if (typeof weatherData.main !== "undefined") {
     return (
       <Container>
-        <div></div>
+        <WeatherPicture picture={weatherData.weather[0].icon} />
         <InfoWrapper>
           <h3>
-            {weather.name}: {temp} degrees
+            {weatherData.name},{weatherData.sys.country}
           </h3>
-          <p>Its {isItWarm(temp)}</p>
           <p>
-            Humidity is {weather.main.humidity}% and it feels like{" "}
-            {Math.floor(weather.main.feels_like)} degrees
+            Its <Temp>{temp}</Temp> degrees and {isItWarm(temp)}, humidity is{" "}
+            {weatherData.main.humidity}% and it feels like{" "}
+            {Math.floor(weatherData.main.feels_like)} degrees
           </p>
-          <p>Wind: {Math.floor(weather.wind.speed)} m/s</p>
+          <p>Wind is {Math.floor(weatherData.wind.speed)} m/s</p>
         </InfoWrapper>
       </Container>
     );

@@ -31,6 +31,5 @@ export const useGeolocation = () => {
     });
     console.log(error.message);
   }
-  // console.log(loc.coord)
   return loc.coord;
 };

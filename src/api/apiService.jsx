@@ -11,7 +11,6 @@ export async function FetchWeather(data) {
 }
 
 export async function FetchWeaterByLocation(data) {
-  console.log("data in fetch", data);
   const response = await axios
     .get(
       `${BASE_URL}?lat=${data.lat}&lon=${data.lon}&units=metric&appid=${KEY}`
