@@ -1,5 +1,5 @@
-import { FetchWeaterByLocation } from "api/apiService";
-import { FetchWeather } from "api/apiService";
+import { FetchWeaterByLocation } from "../api/apiService";
+import { FetchWeather } from "../api/apiService";
 import { useState, useEffect } from "react";
 import {
   Container,
