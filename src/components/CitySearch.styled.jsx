@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 export const Form = styled.form`
   display: flex;
   justify-content: center;
-  padding: 8px;
+  min-width: 280px;
+  max-width: 600px;
+  padding: 16px 8px;
   margin: 0 auto;
 `;
 

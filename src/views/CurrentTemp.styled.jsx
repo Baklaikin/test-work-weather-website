@@ -14,20 +14,24 @@ export const InfoWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 8px;
 `;
 
 export const WeatherPicture = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 35%;
   background-image: ${(props) => {
     return `url( http://openweathermap.org/img/wn/${props.picture}@2x.png)`;
   }};
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
-export const Temp = styled.span`
-  font-size: 20px;
+export const Temp = styled.h3`
+  font-size: 50px;
   font-weight: 700;
 `;
+
+export const Text = styled.p``;
