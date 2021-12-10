@@ -20,6 +20,7 @@ export function CurrentTemp({ data, location }) {
       });
     }
   }, [data]);
+
   useEffect(() => {
     if (!isNaN(location.lat) && !isNaN(location.lon)) {
       FetchWeaterByLocation(location).then((response) => {

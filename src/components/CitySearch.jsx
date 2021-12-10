@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { Form, Input, Button } from "./CitySearch.styled";
 
 export function CitySearch({ onCitySearch, onCoordSearch }) {
