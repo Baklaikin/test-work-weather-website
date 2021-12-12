@@ -41,13 +41,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   padding: 8px;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: transparent;
 `;
 
 const Wrapper = styled.div`
   border-radius: 12px;
   box-shadow: -1px 0px 8px -3px rgba(34, 60, 80, 0.15);
+  width: 95vw;
 `;

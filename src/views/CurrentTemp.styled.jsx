@@ -34,4 +34,9 @@ export const Temp = styled.h3`
   font-weight: 700;
 `;
 
-export const Text = styled.p``;
+export const Text = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+`;

@@ -6,6 +6,7 @@ import {
   InfoWrapper,
   WeatherPicture,
   Temp,
+  Text,
 } from "./CurrentTemp.styled";
 
 export function CurrentTemp({ data, location }) {
@@ -65,12 +66,13 @@ export function CurrentTemp({ data, location }) {
           <h3>
             {weatherData.name},{weatherData.sys.country}
           </h3>
-          <Temp>{temp}</Temp>
-          <p>
-            Its {isItWarm(temp)}, humidity is {weatherData.main.humidity}% and
-            it feels like {Math.floor(weatherData.main.feels_like)} degrees
-          </p>
-          <p>Wind is {Math.floor(weatherData.wind.speed)} m/s</p>
+          <Temp>{temp}&#176;c</Temp>
+          <Text>
+            Its {isItWarm(temp)}, humidity: {weatherData.main.humidity}% and it
+            feels like {Math.floor(weatherData.main.feels_like)}&#176;c
+          </Text>
+          <Text>Wind: {Math.floor(weatherData.wind.speed)} m/s</Text>
+          <Text>QNH: {Math.floor(weatherData.main.pressure)}</Text>
         </InfoWrapper>
       </Container>
     );

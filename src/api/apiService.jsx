@@ -7,7 +7,6 @@ export async function FetchWeather(data) {
   const response = await axios
     .get(`${BASE_URL}?q=${data}&units=metric&appid=${KEY}`)
     .then((value) => {
-      console.log("in fetch:", value);
       if (value.status !== 200) {
         throw new Error(value.status);
       }
