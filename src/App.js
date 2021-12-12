@@ -8,8 +8,8 @@ import styled from "@emotion/styled";
 function App() {
   const [city, setCity] = useState("");
   const [location, setLocation] = useState({});
-
   const position = useGeolocation();
+
   useEffect(() => {
     setLocation({
       lat: Number(position.lat),

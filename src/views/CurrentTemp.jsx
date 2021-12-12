@@ -13,20 +13,31 @@ export function CurrentTemp({ data, location }) {
   const [weatherData, setWeatherData] = useState({});
 
   useEffect(() => {
-    if (data !== "") {
-      FetchWeather(data).then((response) => {
+    if (data === "" || data === undefined || Number(data)) {
+      return;
+    }
+    FetchWeather(data)
+      .then((response) => {
         setWeatherData(response);
         setTemp(Math.floor(response.main.temp));
+      })
+      .catch((error) => {
+        alert("Data is not found for this city");
+        console.log("Info at error block:", error.message);
       });
-    }
   }, [data]);
 
   useEffect(() => {
     if (!isNaN(location.lat) && !isNaN(location.lon)) {
-      FetchWeaterByLocation(location).then((response) => {
-        setWeatherData(response);
-        setTemp(Math.floor(response.main.temp));
-      });
+      FetchWeaterByLocation(location)
+        .then((response) => {
+          setWeatherData(response);
+          setTemp(Math.floor(response.main.temp));
+        })
+        .catch((error) => {
+          alert("Data is not found for this city");
+          console.log(error.message);
+        });
     }
   }, [location]);
 
@@ -36,7 +47,7 @@ export function CurrentTemp({ data, location }) {
       card.style.backgroundColor = "#00ffff";
       return "cold";
     }
-    if ((temp = 10)) {
+    if (temp > -10 && temp < 30) {
       card.style.backgroundColor = "#fff700";
       return "warm";
     }

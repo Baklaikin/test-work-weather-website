@@ -22,7 +22,7 @@ export function CitySearch({ onCitySearch, onCoordSearch }) {
 
   const inputHandler = (event) => {
     const data = event.target.value;
-    if (!Number(data)) {
+    if (isNaN(data.slice(0, 2)) && Number(data) !== 0) {
       setResult(data);
     }
     const coords = data.split(" ");
