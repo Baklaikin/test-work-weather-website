@@ -8,6 +8,7 @@ import {
   Temp,
   Text,
 } from "./CurrentTemp.styled";
+import { isItWarm } from "hooks/isItWarm";
 
 export function CurrentTemp({ data, location }) {
   const [temp, setTemp] = useState("");
@@ -41,22 +42,6 @@ export function CurrentTemp({ data, location }) {
         });
     }
   }, [location]);
-
-  const isItWarm = (temp) => {
-    const card = document.querySelector("#tempCard");
-    if (temp < -10) {
-      card.style.backgroundColor = "#00ffff";
-      return "cold";
-    }
-    if (temp > -10 && temp < 30) {
-      card.style.backgroundColor = "#fff700";
-      return "warm";
-    }
-    if (temp > 30) {
-      card.style.backgroundColor = "#ff8c00";
-      return "hot";
-    }
-  };
 
   if (typeof weatherData.main !== "undefined") {
     return (
