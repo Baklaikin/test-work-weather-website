@@ -21,7 +21,7 @@ export const dynamicTemp = (temp) => {
       g = 255;
     }
   } else if (temp < 0) {
-    g = Math.round(255 - -temp * 5);
+    g = Math.round(255 + temp * 5);
     if (g < 0) {
       g = 0;
     } else if (g > 255) {
