@@ -1,5 +1,4 @@
-import { dynamicTemp } from "./dynamicTemperature";
-
+import { dynamicTemp } from "./dynamicTemperature"; //Producing rgb color for background;
 export const isItWarm = (temp) => {
   const card = document.querySelector("#tempCard");
   card.style.backgroundColor = dynamicTemp(temp);

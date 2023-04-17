@@ -37,12 +37,12 @@ export default App;
 
 const Container = styled.div`
   min-width: 320px;
-  max-width: 100%;
+  max-width: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  padding: 8px;
+  height: 600px;
+  padding: 16px;
   margin: 20px auto;
   background-color: transparent;
 `;

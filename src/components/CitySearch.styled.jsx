@@ -5,7 +5,7 @@ export const Form = styled.form`
   justify-content: center;
   min-width: 280px;
   max-width: 600px;
-  padding: 16px 8px;
+  padding: 32px 16px;
   margin: 0 auto;
 `;
 

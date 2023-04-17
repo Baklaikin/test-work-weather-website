@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 8px;
+  padding: 16px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: transparent;
+  align-items: center;
 `;
 
 export const InfoWrapper = styled.div`
@@ -39,4 +40,7 @@ export const Text = styled.p`
   padding: 0;
   font-size: 20px;
   font-weight: 500;
+  &:not(:first-of-type) {
+    display: inline;
+  }
 `;
